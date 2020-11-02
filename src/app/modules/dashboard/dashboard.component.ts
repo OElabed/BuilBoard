@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { FullScreenService } from 'src/app/core/services/full-screen.service';
 import { DOCUMENT } from '@angular/common';
-import  * as buildData from 'src/assets/data/project-builds.json';
+import * as buildData from 'src/assets/data/project-builds.json';
 
 export interface PeriodicElement {
   name: string;
@@ -37,9 +37,10 @@ export class DashboardComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   fullScreen: Boolean = false;
   gridMode: Boolean = false;
+  cardFlex: number = 33;
 
   projectBuilds: any = (buildData as any).default;
-  
+
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -89,11 +90,30 @@ export class DashboardComponent implements OnInit {
     this.gridMode = false;
   }
 
-  fullScreenContentStyle(){
-      return {
-        'overflow-y': 'auto',
-        'max-height': (screen.height - 80) + 'px'
+  fullScreenContentStyle() {
+    return {
+      'overflow-y': 'auto',
+      'max-height': (screen.height - 80) + 'px'
+    }
+  }
+
+  changeCardFlex(): void {
+    let flexList = [10, 20, 25, 33, 50, 100];
+    let index = 0;
+    while (true) {
+      if (flexList[index] == this.cardFlex) {
+        if (index == flexList.length - 1) {
+          this.cardFlex = flexList[0];
+        } else {
+          this.cardFlex = flexList[index + 1];
+        }
+        break;
       }
 
+      if (index == flexList.length - 1) {
+        index = -1;
+      }
+      index++;
+    }
   }
 }

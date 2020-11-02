@@ -15,5 +15,5 @@ export interface BuildInfo {
     status: string;
     time: string;
     number: number;
-    details: object;
+    details: any;
 }

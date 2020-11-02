@@ -10,6 +10,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { CoreModule } from 'src/app/core/core.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 import { BuildCardComponent } from './build-card/build-card.component';
 
 
@@ -28,7 +30,9 @@ import { BuildCardComponent } from './build-card/build-card.component';
     MatTableModule,
     MatSortModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule,
+    MatRadioModule
   ]
 })
 export class DashboardModule { }

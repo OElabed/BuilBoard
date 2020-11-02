@@ -1,119 +1,111 @@
-<mat-card [ngClass]="['text-white', resolveBuildClass(build.build.status)]">
-    <mat-card-title style="color: white;">
-      <h2 class="fw-bold">{{build.project}}</h2>
-    </mat-card-title>
-    <mat-card-content style="color: white;">
-      <!-- failed build -->
-      <div fxLayout="row" fxLayoutAlign="start center" style="height: 60px;"
-        *ngIf="build.build.status == 'FAILURE'">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">highlight_off
+<mat-card [ngClass]="['text-white', resolveBuildClass(build.build.status)]" class="build-card">
+  <mat-card-title>
+    <h2 class="fw-bold">{{build.project}}</h2>
+  </mat-card-title>
+  <mat-card-content>
+    <!-- failed build -->
+    <div fxLayout="row" fxLayoutAlign="start center" class="height-medium" *ngIf="build.build.status == 'FAILURE'">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">highlight_off
+      </mat-icon>
+      <span class="fw-bold font-medium">{{ build.build.details.failedJob }} failed</span>
+    </div>
+    <!-- progress build -->
+    <div fxLayout="row" fxLayoutAlign="start center" class="height-medium" *ngIf="build.build.status == 'PROGRESS'">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">autorenew
+      </mat-icon>
+      <span class="fw-bold font-medium">In progress</span>
+    </div>
+    <!-- success build -->
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="height-medium"
+      *ngIf="build.build.status == 'SUCCESS'">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">
+          check_circle_outline
         </mat-icon>
-        <span class="fw-bold" style="font-size: medium;">{{ build.build.details.failedJob }} failed</span>
+        <span class="fw-bold font-medium">Success</span>
       </div>
-      <!-- progress build -->
-      <div fxLayout="row" fxLayoutAlign="start center" style="height: 60px;"
-        *ngIf="build.build.status == 'PROGRESS'">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">autorenew
-        </mat-icon>
-        <span class="fw-bold" style="font-size: medium;">In progress</span>
-      </div>
-      <!-- success build -->
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="height: 60px;"
-        *ngIf="build.build.status == 'SUCCESS'">
-        <div fxLayout="row" fxLayoutAlign="start center">
-          <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">
-            check_circle_outline
-          </mat-icon>
-          <span class="fw-bold" style="font-size: medium;">Success</span>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium">
+        <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
+          <span class="fw-bold font-extra-details">Test</span>
+          <span class="fw-bold font-extra-details">Coverage</span>
+          <span class="fw-bold font-extra-details">S.Bugs</span>
+          <span class="fw-bold font-extra-details">S.Vulne</span>
+          <span class="fw-bold font-extra-details">S.Debt</span>
+          <span class="fw-bold font-extra-details">S.Smells</span>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center"
-          style="background-color: rgba(117, 117, 117, 0.2);height: max-content;padding-left: 3px;padding-right: 5px;border-radius: 3px;">
-          <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
-            <span class="fw-bold" style="font-size: smaller;">Test</span>
-            <span class="fw-bold" style="font-size: smaller;">Coverage</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Bugs</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Vulne</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Debt</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Smells</span>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center end">
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.test.unit }}</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.test.coverage }}%</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.bugs }}</span>
-            <span class="fw-bold"
-              style="font-size: smaller;">{{ build.build.details.sonar.vulnerabilities }}</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.debt }}</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.smells }}</span>
-          </div>
+        <div fxLayout="column" fxLayoutAlign="center end">
+          <span class="fw-bold font-extra-details">{{ build.build.details.test.unit }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.test.coverage }}%</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.bugs }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.vulnerabilities }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.debt }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.smells }}</span>
+        </div>
 
-        </div>
       </div>
-      <!-- unstable build -->
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="height: 60px;"
-        *ngIf="build.build.status == 'UNSTABLE'">
-        <div fxLayout="row" fxLayoutAlign="start center">
-          <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">
-            check_circle_outline
-          </mat-icon>
-          <span class="fw-bold" style="font-size: medium;">Unstable</span>
+    </div>
+    <!-- unstable build -->
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="height-medium"
+      *ngIf="build.build.status == 'UNSTABLE'">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">
+          check_circle_outline
+        </mat-icon>
+        <span class="fw-bold font-medium">Unstable</span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium">
+        <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
+          <span class="fw-bold font-extra-details">Test</span>
+          <span class="fw-bold font-extra-details">Coverage</span>
+          <span class="fw-bold font-extra-details">S.Bugs</span>
+          <span class="fw-bold font-extra-details">S.Vulne</span>
+          <span class="fw-bold font-extra-details">S.Debt</span>
+          <span class="fw-bold font-extra-details">S.Smells</span>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center"
-          style="background-color: rgba(117, 117, 117, 0.2);height: max-content;padding-left: 3px;padding-right: 5px;border-radius: 3px;">
-          <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
-            <span class="fw-bold" style="font-size: smaller;">Test</span>
-            <span class="fw-bold" style="font-size: smaller;">Coverage</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Bugs</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Vulne</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Debt</span>
-            <span class="fw-bold" style="font-size: smaller;">S.Smells</span>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center end">
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.test.unit }}</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.test.coverage }}%</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.bugs }}</span>
-            <span class="fw-bold"
-              style="font-size: smaller;">{{ build.build.details.sonar.vulnerabilities }}</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.debt }}d</span>
-            <span class="fw-bold" style="font-size: smaller;">{{ build.build.details.sonar.smells }}</span>
-          </div>
+        <div fxLayout="column" fxLayoutAlign="center end">
+          <span class="fw-bold font-extra-details">{{ build.build.details.test.unit }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.test.coverage }}%</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.bugs }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.vulnerabilities }}</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.debt }}d</span>
+          <span class="fw-bold font-extra-details">{{ build.build.details.sonar.smells }}</span>
+        </div>
 
-        </div>
       </div>
-      <!-- other build -->
-      <div fxLayout="row" fxLayoutAlign="start center" style="height: 60px;"
-        *ngIf="build.build.status != 'FAILURE' && build.build.status != 'SUCCESS' && build.build.status != 'PROGRESS' && build.build.status != 'UNSTABLE'">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">pause_circle_outline
-        </mat-icon>
-        <span class="fw-bold" style="font-size: medium;">Stopped</span>
-      </div>
+    </div>
+    <!-- other build -->
+    <div fxLayout="row" fxLayoutAlign="start center" class="height-medium"
+      *ngIf="build.build.status != 'FAILURE' && build.build.status != 'SUCCESS' && build.build.status != 'PROGRESS' && build.build.status != 'UNSTABLE'">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold pr-2">pause_circle_outline
+      </mat-icon>
+      <span class="fw-bold font-medium">Stopped</span>
+    </div>
 
-      <div fxLayout="row" fxLayoutAlign="start none" style="height: 17px;">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold"
-          style="font-size: medium;">local_shipping
-        </mat-icon>
-        <small class="fw-bold pr-2">v{{ build.version }}</small>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start none" style="height: 17px;">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold"
-          style="font-size: medium;">call_split
-        </mat-icon>
-        <small class="fw-bold pr-2">{{ build.commit.branch }}</small>
-        <a href="https://www.google.com/" target="_blank" class="fw-bold"
-          style="color: white;font-size: smaller;background-color: rgba(117, 117, 117, 0.2);height: max-content;text-decoration: none;padding-left: 3px;padding-right: 5px;border-radius: 3px;">{{ exctractShortSha1(build.commit.sha1) }}</a>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start none" style="height: 17px;">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold"
-          style="font-size: medium;">person
-        </mat-icon>
-        <small class="fw-bold pr-2">{{ build.commit.author }}</small>
-      </div>
-    </mat-card-content>
-    <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center" class="pl-2 pr-2 fw-bold"
-      style="background-color: rgba(117, 117, 117, 0.2);color: white;">
-      <small *ngIf="build.build.status != 'PROGRESS'">#{{build.build.number}}</small>
-      <small *ngIf="build.build.status != 'PROGRESS'">Finished {{ relativeDate(build.build.time) }}</small>
-      <mat-progress-bar mode="indeterminate" *ngIf="build.build.status == 'PROGRESS'" class="mr-5">
-      </mat-progress-bar>
-      <small>{{build.build.status}}</small>
-    </mat-card-footer>
-  </mat-card>
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">
+        local_shipping
+      </mat-icon>
+      <small class="fw-bold pr-2">v{{ build.version }}</small>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">call_split
+      </mat-icon>
+      <small class="fw-bold pr-2">{{ build.commit.branch }}</small>
+      <a href="https://www.google.com/" target="_blank"
+        class="fw-bold sha1">{{ exctractShortSha1(build.commit.sha1) }}</a>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">person
+      </mat-icon>
+      <small class="fw-bold pr-2">{{ build.commit.author }}</small>
+    </div>
+  </mat-card-content>
+  <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center" class="pl-2 pr-2 fw-bold"
+    style="background-color: rgba(117, 117, 117, 0.2);color: white;">
+    <small *ngIf="build.build.status != 'PROGRESS'">#{{build.build.number}}</small>
+    <small *ngIf="build.build.status != 'PROGRESS'">Finished {{ relativeDate(build.build.time) }}</small>
+    <mat-progress-bar mode="indeterminate" *ngIf="build.build.status == 'PROGRESS'" class="mr-5">
+    </mat-progress-bar>
+    <small>{{build.build.status}}</small>
+  </mat-card-footer>
+</mat-card>

@@ -1,24 +1,27 @@
 <div class="container" fxLayout="row" fxLayoutAlign="center none">
   <div fxFlex="95%">
 
-    <mat-card id="dashboard">
-      <mat-card-header fxLayout="row" fxLayoutAlign="end center">
+    <mat-card id="dashboard" [ngClass]="{'fullscreen-monitor': fullScreen}">
+      <mat-card-header fxLayout="row" fxLayoutAlign="end center" class="monitor">
+        <button mat-icon-button (click)="changeCardFlex()">
+          <mat-icon class="monitor">dashboard</mat-icon>
+        </button>
         <button mat-icon-button (click)="toggleGridMode()" *ngIf="!gridMode">
-          <mat-icon>grid_on</mat-icon>
+          <mat-icon class="monitor">grid_on</mat-icon>
         </button>
         <button mat-icon-button (click)="exitGridMode()" *ngIf="gridMode">
-          <mat-icon>grid_off</mat-icon>
+          <mat-icon class="monitor">grid_off</mat-icon>
         </button>
         <button mat-icon-button (click)="toggleFullscreen()" *ngIf="!fullScreen">
-          <mat-icon>fullscreen</mat-icon>
+          <mat-icon class="monitor">fullscreen</mat-icon>
         </button>
         <button mat-icon-button (click)="exitFullscreen()" *ngIf="fullScreen">
-          <mat-icon>fullscreen_exit</mat-icon>
+          <mat-icon class="monitor">fullscreen_exit</mat-icon>
         </button>
       </mat-card-header>
-      <mat-card-content [ngStyle]="fullScreen ? fullScreenContentStyle() : null">
+      <mat-card-content [ngStyle]="fullScreen ? fullScreenContentStyle() : null" class="monitor">
         <div fxLayout="row space-around" *ngIf="!gridMode">
-          <div fxFlex.gt-sm="20" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds" class="pr-3 pb-3">
+          <div [fxFlex.gt-sm]="cardFlex" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds" class="pr-3 pb-3">
             <app-build-card [build]="project"></app-build-card>
           </div>
         </div>

@@ -1,22 +1,80 @@
 @import "~src/styles/variables/colors";
 
+.build-card {
+  mat-card-title {
+    color: white;
+  }
+
+  mat-card-content {
+    color: white;
+
+    .height-medium {
+      height: 60px;
+    }
+
+    .font-medium {
+      font-size: medium;
+    }
+
+    .build-extra-details-medium {
+      background-color: rgba(117, 117, 117, 0.2);
+      height: max-content;
+      padding-left: 3px;
+      padding-right: 5px;
+      border-radius: 3px;
+
+      .font-extra-details {
+        font-size: smaller;
+      }
+    }
+
+    .build-details-medium {
+      height: 17px;
+
+      .sha1 {
+        color: white;
+        font-size: smaller;
+        background-color: rgba(117, 117, 117, 0.2);
+        height: max-content;
+        text-decoration: none;
+        padding-left: 3px;
+        padding-right: 5px;
+        border-radius: 3px;
+      }
+
+      .build-data {
+        font-size: medium;
+      }
+    }
+  }
+
+  mat-card-footer {
+    background-color: rgba(117, 117, 117, 0.2);
+    color: white;
+  }
+}
+
 .build-success {
-    background-color: $color-success;
-  }
-  
-  .build-failure {
-    background-color: $color-failure;
-  }
-  
-  .build-progress {
-    background-color: $color-progress;
-  }
-  
-  
-  .build-unstable {
-    background-color: $color-unstable;
-  }
-  
-  .build-canceled {
-    background-color: $color-canceled;
-  }
+  background-color: $color-success;
+}
+
+.build-failure {
+  background-color: $color-failure;
+}
+
+.build-progress {
+  background: repeating-linear-gradient(-55deg,
+      #428BCA,
+      #428BCA 10px,
+      #5E9CD2 10px,
+      #5E9CD2 20px);
+}
+
+
+.build-unstable {
+  background-color: $color-unstable;
+}
+
+.build-canceled {
+  background-color: $color-canceled;
+}
