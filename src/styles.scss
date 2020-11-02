@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@import "styles/themes/material";
+@import 'styles/helpers/settings';
+@import 'styles/helpers/spacers';
+@import 'styles/helpers/visibility';
+@import 'styles/helpers/typography';
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.spinner {
+  left: 49%;
+  position: fixed !important;
+  top: 15%;
+  z-index: 9999;
+}
+
+.animate {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

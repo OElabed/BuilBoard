@@ -1,0 +1,415 @@
+[
+    {
+        "project": "It",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-07-17T04:09:24Z",
+            "number": 78 
+        },
+        "version": "3.75",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "16d64241a2c869ce45fa7150806ee1c056d95b3b",
+            "author": "crogan0"
+        }
+    },
+    {
+        "project": "Viva",
+        "build": {
+            "status": "NOT_BUILT",
+            "time": "2019-12-19T22:50:46Z",
+            "number": 78 
+        },
+        "version": "5.00",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "6ca8b1f5ba20112ebdc384b6cb2742ddc267d1fa",
+            "author": "irawcliffe1"
+        }
+    },
+    {
+        "project": "Tres-Zap",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-08-05T00:17:31Z",
+            "number": 78 
+        },
+        "version": "8.3",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "e0def0051bfedd8f4223587d59964fb505611b48",
+            "author": "pgulliman2"
+        }
+    },
+    {
+        "project": "Stim",
+        "build": {
+            "status": "NOT_BUILT",
+            "time": "2020-07-24T03:30:18Z",
+            "number": 78 
+        },
+        "version": "0.75",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "55cb1d7820d8c5770edd285964557e538dfc1941",
+            "author": "mokane3"
+        }
+    },
+    {
+        "project": "Zamit",
+        "build": {
+            "status": "FAILURE",
+            "time": "2019-11-15T13:30:28Z",
+            "number": 78,
+            "details": {
+                "failedJob" : "Test"
+            }
+        },
+        "version": "8.5.7",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "b9d090f0e9990a750833204d1edeadfefa5cb862",
+            "author": "apinnick4"
+        }
+    },
+    {
+        "project": "Tin",
+        "build": {
+            "status": "NOT_BUILT",
+            "time": "2020-08-20T20:37:34Z",
+            "number": 78 
+        },
+        "version": "8.2",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "34fd00a0dacaf090b70a613770a58bff9889f0a7",
+            "author": "cstiles5"
+        }
+    },
+    {
+        "project": "Zaam-Dox",
+        "build": {
+            "status": "UNSTABLE",
+            "time": "2020-06-14T18:51:16Z",
+            "number": 78,
+            "details" :{
+                "test": {
+                    "unit": 1926,
+                    "coverage": 37
+                },
+                "sonar": {
+                    "bugs": 1,
+                    "vulnerabilities": 70,
+                    "debt": 207,
+                    "smells": 2
+                }
+            }
+        },
+        "version": "3.0",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "fecbef2c8d966d7a0c09a96f6d97b678507e26a9",
+            "author": "jstquenin6"
+        }
+    },
+    {
+        "project": "Tin",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-03-31T21:29:04Z",
+            "number": 78 
+        },
+        "version": "0.30",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "45348c4da6bfb531c175ceb5ffcf4dbe912cba40",
+            "author": "phuddle7"
+        }
+    },
+    {
+        "project": "Tresom",
+        "build": {
+            "status": "PROGRESS",
+            "time": "2020-02-10T14:54:33Z",
+            "number": 78 
+        },
+        "version": "3.0",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "3dafdcef44522823d3005f347c296ba9215b5d9f",
+            "author": "djordi8"
+        }
+    },
+    {
+        "project": "Stim",
+        "build": {
+            "status": "ABORTED",
+            "time": "2019-11-08T08:48:29Z",
+            "number": 78 
+        },
+        "version": "0.70",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "27bab07362fcda5526df6c3cb2f20bb57cdcbb62",
+            "author": "rswainson9"
+        }
+    },
+    {
+        "project": "Sonair",
+        "build": {
+            "status": "FAILURE",
+            "time": "2020-05-27T00:56:28Z",
+            "number": 78,
+            "details": {
+                "failedJob" : "Test"
+            }
+        },
+        "version": "7.7",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "23081e56fe47ed0dc1b8ec77e6268ab83666ed93",
+            "author": "dgiovanninia"
+        }
+    },
+    {
+        "project": "Sonair",
+        "build": {
+            "status": "FAILURE",
+            "time": "2020-06-15T12:37:18Z",
+            "number": 78,
+            "details": {
+                "failedJob" : "Test"
+            }
+        },
+        "version": "0.86",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "9fedfcaae28a4ca60bc5a7516ae4f2592ca3a577",
+            "author": "lpiggotb"
+        }
+    },
+    {
+        "project": "Flexidy",
+        "build": {
+            "status": "PROGRESS",
+            "time": "2020-07-22T08:57:22Z",
+            "number": 78 
+        },
+        "version": "7.54",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "2b9a8b590d57bc15c3501b7eec10e1cba53a5020",
+            "author": "rrofec"
+        }
+    },
+    {
+        "project": "Flowdesk",
+        "build": {
+            "status": "SUCCESS",
+            "time": "2020-02-28T18:00:23Z",
+            "number": 78,
+            "details" :{
+                "test": {
+                    "unit": 1926,
+                    "coverage": 37
+                },
+                "sonar": {
+                    "bugs": 1,
+                    "vulnerabilities": 70,
+                    "debt": 207,
+                    "smells": 2
+                }
+            }
+        },
+        "version": "8.25",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "c03637184efe1553fa800cb8b29a0f4dfd862c30",
+            "author": "sdunstand"
+        }
+    },
+    {
+        "project": "Flexidy",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-09-09T01:52:46Z",
+            "number": 78 
+        },
+        "version": "0.61",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "4e32ad044b3b6dc90c2e391fefda7974969daddf",
+            "author": "hsidawaye"
+        }
+    },
+    {
+        "project": "Stim",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-01-07T22:40:35Z",
+            "number": 78 
+        },
+        "version": "0.7.1",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "efbe313c1f9c3b3d773f49519b50f8ed17070dc2",
+            "author": "rwitlingf"
+        }
+    },
+    {
+        "project": "Job",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-04-16T20:06:33Z",
+            "number": 78 
+        },
+        "version": "0.3.6",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "8f3c5ce70d2c94c7b729647c9ef44f9fb80c43e9",
+            "author": "lrabjohnsg"
+        }
+    },
+    {
+        "project": "Temp",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-02-28T21:10:16Z",
+            "number": 78 
+        },
+        "version": "0.72",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "912f3868cc05223f291776402788e6f984353ea6",
+            "author": "cgrivorih"
+        }
+    },
+    {
+        "project": "Fintone",
+        "build": {
+            "status": "NOT_BUILT",
+            "time": "2020-02-01T18:08:35Z",
+            "number": 78 
+        },
+        "version": "1.6.9",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "99f3edb3bd1a51754293ecef325efd927058754a",
+            "author": "vblownei"
+        }
+    },
+    {
+        "project": "Flexidy",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-05-07T06:22:25Z",
+            "number": 78 
+        },
+        "version": "0.29",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "0d74366692ebc4153110d746914316b6de78e749",
+            "author": "rhoneywoodj"
+        }
+    },
+    {
+        "project": "Aerified",
+        "build": {
+            "status": "ABORTED",
+            "time": "2020-01-20T17:30:38Z",
+            "number": 78 
+        },
+        "version": "5.54",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "6bbb21a5654961a2ac8ea74200839156206c6866",
+            "author": "felliffk"
+        }
+    },
+    {
+        "project": "Alpha",
+        "build": {
+            "status": "FAILURE",
+            "time": "2020-05-18T22:10:52Z",
+            "number": 78,
+            "details": {
+                "failedJob" : "Test"
+            }
+        },
+        "version": "0.22",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "9b8ffd184f8fb9a163a3921269e94a3aa71c7732",
+            "author": "gspringtorpl"
+        }
+    },
+    {
+        "project": "Bitchip",
+        "build": {
+            "status": "UNSTABLE",
+            "time": "2019-11-14T03:48:29Z",
+            "number": 78,
+            "details" :{
+                "test": {
+                    "unit": 1926,
+                    "coverage": 37
+                },
+                "sonar": {
+                    "bugs": 1,
+                    "vulnerabilities": 70,
+                    "debt": 207,
+                    "smells": 2
+                }
+            }
+        },
+        "version": "0.70",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "fdb8be80090a74f0885241af893a7c4c3181c46e",
+            "author": "jeversleym"
+        }
+    },
+    {
+        "project": "Overhold",
+        "build": {
+            "status": "UNSTABLE",
+            "time": "2020-07-13T21:21:32Z",
+            "number": 78,
+            "details" :{
+                "test": {
+                    "unit": 1926,
+                    "coverage": 37
+                },
+                "sonar": {
+                    "bugs": 1,
+                    "vulnerabilities": 70,
+                    "debt": 207,
+                    "smells": 2
+                }
+            }
+        },
+        "version": "9.8",
+        "commit": {
+            "branch": "develop/6.4.x",
+            "sha1": "2d8b228c47b0e9919a8492d7eb618d5f1e9e8cbe",
+            "author": "nsommerlinn"
+        }
+    },
+    {
+        "project": "Stringtough",
+        "build": {
+            "status": "FAILURE",
+            "time": "2020-05-26T16:59:05Z",
+            "number": 78,
+            "details": {
+                "failedJob" : "Test"
+            }
+        },
+        "version": "7.2",
+        "commit": {
+            "branch": "develop/master",
+            "sha1": "ebeca33b4ab6cd1fffaef82bdcab6b654fba1537",
+            "author": "ajukeso"
+        }
+    }
+]

@@ -1,0 +1,35 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$indigo-primary: mat-palette($mat-indigo);
+$pink-accent:  mat-palette($mat-pink, A200, A100, A400);
+$indigo-pink: mat-light-theme($indigo-primary, $pink-accent);
+
+$deeppurple-primary: mat-palette($mat-deep-purple);
+$amber-accent:  mat-palette($mat-amber, A200, A100, A400);
+$deeppurple-amber: mat-light-theme($deeppurple-primary, $amber-accent);
+
+$pink-primary: mat-palette($mat-pink);
+$bluegrey-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
+$pink-bluegrey: mat-light-theme($pink-primary, $bluegrey-accent);
+
+$purple-primary: mat-palette($mat-purple);
+$green-accent:  mat-palette($mat-green, A200, A100, A400);
+$purple-green: mat-light-theme($purple-primary, $green-accent);
+
+// @include angular-material-theme($indigo-pink);
+
+.deeppurple-amber {
+    @include angular-material-theme($deeppurple-amber);
+}
+.indigo-pink {
+    @include angular-material-theme($indigo-pink);
+}
+
+.pink-bluegrey{
+    @include angular-material-theme($pink-bluegrey);
+}
+.purple-green {
+    @include angular-material-theme($purple-green);
+}

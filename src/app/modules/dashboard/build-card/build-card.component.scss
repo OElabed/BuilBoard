@@ -1,0 +1,22 @@
+@import "~src/styles/variables/colors";
+
+.build-success {
+    background-color: $color-success;
+  }
+  
+  .build-failure {
+    background-color: $color-failure;
+  }
+  
+  .build-progress {
+    background-color: $color-progress;
+  }
+  
+  
+  .build-unstable {
+    background-color: $color-unstable;
+  }
+  
+  .build-canceled {
+    background-color: $color-canceled;
+  }
