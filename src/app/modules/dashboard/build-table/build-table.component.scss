@@ -1,0 +1,33 @@
+@import "~src/styles/variables/colors";
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.build-success {
+  background-color: $color-success !important;
+}
+
+.build-failure {
+  background-color: $color-failure !important;
+}
+
+.build-progress {
+  background: repeating-linear-gradient(-55deg,
+      #428BCA,
+      #428BCA 10px,
+      #5E9CD2 10px,
+      #5E9CD2 20px);
+}
+
+.build-unstable {
+  background-color: $color-unstable !important;
+}
+
+.build-canceled {
+  background-color: $color-canceled !important;
+}

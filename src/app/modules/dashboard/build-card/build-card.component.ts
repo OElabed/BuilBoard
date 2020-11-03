@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment'; 
 import { ProjectBuild } from 'src/app/core/model/project-build';
+import { BuildMiscService } from 'src/app/core/services/build-misc.service';
 
 @Component({
   selector: 'app-build-card',
@@ -10,27 +11,11 @@ import { ProjectBuild } from 'src/app/core/model/project-build';
 export class BuildCardComponent implements OnInit {
 
   @Input() build: ProjectBuild;
+  @Input("card-size") cardSize: number;
 
-  constructor() { }
+  constructor(public buildMiscService: BuildMiscService) { }
 
   ngOnInit(): void {
-  }
-
-  resolveBuildClass(status) {
-    if(status === 'SUCCESS')
-      return 'build-success';
-    if(status === 'FAILURE')
-      return 'build-failure';
-    if(status === 'ABORTED')
-      return 'build-canceled';
-    if(status === 'NOT_BUILT')
-      return 'build-canceled';
-    if(status === 'UNSTABLE')
-      return 'build-unstable';
-    if(status === 'PROGRESS')
-      return 'build-progress';
-
-    return 'build-canceled'
   }
 
   exctractShortSha1(sha1) {

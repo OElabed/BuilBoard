@@ -1,4 +1,4 @@
-<mat-card [ngClass]="['text-white', resolveBuildClass(build.build.status)]" class="build-card">
+<mat-card [ngClass]="['text-white', buildMiscService.resolveBuildClass(build.build.status)]" class="build-card">
   <mat-card-title>
     <h2 class="fw-bold">{{build.project}}</h2>
   </mat-card-title>
@@ -24,7 +24,7 @@
         </mat-icon>
         <span class="fw-bold font-medium">Success</span>
       </div>
-      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium" *ngIf="cardSize >= 20">
         <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
           <span class="fw-bold font-extra-details">Test</span>
           <span class="fw-bold font-extra-details">Coverage</span>
@@ -53,7 +53,7 @@
         </mat-icon>
         <span class="fw-bold font-medium">Unstable</span>
       </div>
-      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="build-extra-details-medium" *ngIf="cardSize >= 20">
         <div fxLayout="column" fxLayoutAlign="center start" class="pr-5">
           <span class="fw-bold font-extra-details">Test</span>
           <span class="fw-bold font-extra-details">Coverage</span>
@@ -81,26 +81,26 @@
       <span class="fw-bold font-medium">Stopped</span>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium" *ngIf="cardSize >= 20">
       <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">
         local_shipping
       </mat-icon>
       <small class="fw-bold pr-2">v{{ build.version }}</small>
     </div>
-    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium" *ngIf="cardSize >= 20">
       <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">call_split
       </mat-icon>
       <small class="fw-bold pr-2">{{ build.commit.branch }}</small>
       <a href="https://www.google.com/" target="_blank"
         class="fw-bold sha1">{{ exctractShortSha1(build.commit.sha1) }}</a>
     </div>
-    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium">
+    <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium" *ngIf="cardSize >= 20">
       <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">person
       </mat-icon>
       <small class="fw-bold pr-2">{{ build.commit.author }}</small>
     </div>
   </mat-card-content>
-  <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center" class="pl-2 pr-2 fw-bold"
+  <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center" class="pl-2 pr-2 fw-bold" *ngIf="cardSize >= 20"
     style="background-color: rgba(117, 117, 117, 0.2);color: white;">
     <small *ngIf="build.build.status != 'PROGRESS'">#{{build.build.number}}</small>
     <small *ngIf="build.build.status != 'PROGRESS'">Finished {{ relativeDate(build.build.time) }}</small>

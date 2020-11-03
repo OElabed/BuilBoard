@@ -13,13 +13,15 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { BuildCardComponent } from './build-card/build-card.component';
+import { BuildTableComponent } from './build-table/build-table.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    BuildCardComponent
+    BuildCardComponent,
+    BuildTableComponent
   ],
   imports: [
     CommonModule,
