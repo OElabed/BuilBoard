@@ -1,0 +1,119 @@
+[
+    {
+        "project": "Alpha",
+        "build": {
+            "status": "FAILURE",
+            "time": "2020-05-18T22:10:52Z",
+            "number": 78,
+            "details": {
+                "test": {
+                    "status": "FAILURE",
+                    "infos": {
+                        "UT": {
+                            "number": 1926,
+                            "status": "SUCCESS",
+                            "execution": {
+                                "passed": 1926,
+                                "failure": 0
+                            }
+                        },
+                        "BDD": {
+                            "number": 2,
+                            "status": "FAILURE",
+                            "execution": {
+                                "passed": 1,
+                                "failure": 1
+                            }
+                        }
+                    }
+                },
+                "sonar": {
+                    "status": "SUCCESS",
+                    "infos": {
+                        "coverage": {
+                            "number": 37,
+                            "status": "SUCCESS"
+                        },
+                        "bugs": {
+                            "number": 40,
+                            "status": "SUCCESS"
+                        },
+                        "vul": {
+                            "number": 50,
+                            "status": "SUCCESS"
+                        },
+                        "debt": {
+                            "number": 3,
+                            "status": "SUCCESS"
+                        },
+                        "smells": {
+                            "number": 1,
+                            "status": "SUCCESS"
+                        }
+                    }
+                },
+                "dependencyCheck": {
+                    "status": "FAILURE",
+                    "infos": {
+                        "high": 2,
+                        "low": 1,
+                        "normal": 2
+                    }
+                }
+            }
+        },
+        "version": "0.22",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "9b8ffd184f8fb9a163a3921269e94a3aa71c7732",
+            "author": "gspringtorpl"
+        }
+    },
+    {
+        "project": "Capis",
+        "build": {
+            "status": "SUCCESS",
+            "time": "2020-05-18T22:10:52Z",
+            "number": 78,
+            "details": {
+                "test": {
+                    "status": "SUCCESS",
+                    "infos": {
+                        "UT": {
+                            "number": 1926,
+                            "status": "SUCCESS",
+                            "execution": {
+                                "passed": 1926,
+                                "failure": 0
+                            }
+                        },
+                        "BDD": {
+                            "number": 2,
+                            "status": "SUCCESS",
+                            "execution": {
+                                "passed": 2,
+                                "failure": 0
+                            }
+                        }
+                    }
+                },
+                "sonar": {
+                    "status": "SUCCESS",
+                    "infos": {
+                        "coverage": 37,
+                        "bugs": 1,
+                        "vulnerabilities": 70,
+                        "debt": 207,
+                        "smells": 2
+                    }
+                }
+            }
+        },
+        "version": "0.22",
+        "commit": {
+            "branch": "develop/6.2.1.x",
+            "sha1": "9b8ffd184f8fb9a163a3921269e94a3aa71c7732",
+            "author": "gspringtorpl"
+        }
+    }
+]

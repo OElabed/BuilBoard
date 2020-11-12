@@ -8,6 +8,53 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
+.sha1 {
+  font-size: smaller;
+  background-color:
+    rgba(117, 117, 117, 0.2);
+  height: max-content;
+  padding-left: 3px;
+  padding-right: 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  width: max-content;
+
+  a {
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.details-cell {
+  font-size: smaller;
+  height: max-content;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 100%;
+
+  .extra-details-cell {
+    
+    padding-top: -2px;
+    padding-bottom: -2px;
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 3px;
+    &.success {
+        background-color:
+      rgba(129, 199, 132, 0.25);
+    }
+    &.error {
+        background-color:
+      rgba(229, 115, 115, 0.25);
+    }
+    &.warning {
+        background-color:
+      rgba(248, 203, 49, 0.25);
+    }
+  }
+}
+
 .build-success {
   background-color: $color-success !important;
 }

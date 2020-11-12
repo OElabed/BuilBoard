@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as moment from 'moment'; 
 import { ProjectBuild } from 'src/app/core/model/project-build';
 import { BuildMiscService } from 'src/app/core/services/build-misc.service';
 
@@ -16,14 +15,6 @@ export class BuildCardComponent implements OnInit {
   constructor(public buildMiscService: BuildMiscService) { }
 
   ngOnInit(): void {
-  }
-
-  exctractShortSha1(sha1) {
-    return sha1.substr(0,7);
-  }
-
-  relativeDate(fromDate) {
-    return moment(fromDate).fromNow();
   }
 
 }

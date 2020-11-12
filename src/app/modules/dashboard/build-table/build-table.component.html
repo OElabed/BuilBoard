@@ -3,37 +3,122 @@
     <!-- Project Column -->
     <ng-container matColumnDef="project">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Project </th>
-        <td mat-cell *matCellDef="let element"> {{element.project}} </td>
+        <td mat-cell *matCellDef="let element">
+            <div style="font-weight: bold;">{{element.project | uppercase}} </div>
+        </td>
     </ng-container>
 
     <!-- Status Column -->
     <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-        <td mat-cell *matCellDef="let element"><button mat-flat-button color="primary" [ngClass]="[buildMiscService.resolveBuildClass(element.build.status)]" style="width: 110px;">{{element.build.status}}</button></td>
+        <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary"
+                [ngClass]="[buildMiscService.resolveBuildClass(element.build.status)]"
+                style="width: 110px;">{{element.build.status}}</button>
+        </td>
+    </ng-container>
+
+    <!-- Number Column -->
+    <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Number </th>
+        <td mat-cell *matCellDef="let element"> #{{element.build.number}} </td>
+    </ng-container>
+
+    <!-- branch Column -->
+    <ng-container matColumnDef="branch">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Branch </th>
+        <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="start center">
+
+                <mat-icon style="font-size: 20px;">call_split</mat-icon>
+                <span> {{element.commit.branch}} </span>
+            </div>
+        </td>
     </ng-container>
 
     <!-- Time Column -->
     <ng-container matColumnDef="time">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
-        <td mat-cell *matCellDef="let element">  {{element.build.time}} </td>
+        <td mat-cell *matCellDef="let element"> {{ buildMiscService.relativeDate(element.build.time) }} </td>
     </ng-container>
 
     <!-- Author Column -->
     <ng-container matColumnDef="version">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Version </th>
-        <td mat-cell *matCellDef="let element"> {{element.version}} </td>
+        <td mat-cell *matCellDef="let element"> v{{element.version}} </td>
     </ng-container>
 
     <!-- Author Column -->
     <ng-container matColumnDef="author">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
-        <td mat-cell *matCellDef="let element"> {{element.commit.author}} </td>
+        <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="start center">
+
+                <mat-icon style="font-size: 20px;">person</mat-icon>
+                <span> {{element.commit.author}} </span>
+            </div>
+        </td>
     </ng-container>
-    <!-- Symbol Column -->
-    <!-- <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container> -->
+
+    <!-- Commit Column -->
+    <ng-container matColumnDef="commit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Commit </th>
+        <td mat-cell *matCellDef="let element">
+            <div class="sha1"><a href="https://www.google.com/"
+                    target="_blank">{{buildMiscService.exctractShortSha1(element.commit.sha1)}} </a></div>
+        </td>
+    </ng-container>
+
+    <!-- Test Column -->
+    <ng-container matColumnDef="test">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tests </th>
+        <td mat-cell *matCellDef="let element">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="details-cell">
+                <div fxLayout="row" fxLayoutAlign="start center" class="details-cell">
+                    <div class="extra-details-cell success">1 UT(1 passed)</div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" class="details-cell">
+                    <div class="extra-details-cell warning">2 BDD(1 passed, 1 fail)</div>
+                </div>
+
+            </div>
+        </td>
+    </ng-container>
+
+    <!-- Sonar Column -->
+    <ng-container matColumnDef="sonar">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sonar </th>
+        <td mat-cell *matCellDef="let element">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="details-cell">
+                <div fxLayout="row" fxLayoutAlign="start center" class="details-cell">
+                    <div class="extra-details-cell success">78% coverage</div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" class="details-cell">
+                    <div class="extra-details-cell error">1 bugs</div>
+                    <div class="extra-details-cell error">13 vul</div>
+                    <div class="extra-details-cell error">12d dept</div>
+                    <div class="extra-details-cell error">2 smells</div>
+                </div>
+
+            </div>
+        </td>
+    </ng-container>
+
+    <!-- DependencyCheck Column -->
+    <ng-container matColumnDef="dependencyCheck">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DependencyCheck </th>
+        <td mat-cell *matCellDef="let element">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="details-cell">
+                <div fxLayout="row" fxLayoutAlign="start center" class="details-cell">
+                    <div class="extra-details-cell error">1 hight</div>
+                    <div class="extra-details-cell warning">13 normal</div>
+                    <div class="extra-details-cell success">12 low</div>
+                </div>
+
+            </div>
+        </td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

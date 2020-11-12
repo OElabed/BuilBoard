@@ -6,10 +6,10 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 
 @Component({
   selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  templateUrl: './admin-layout.component.html',
+  styleUrls: ['./admin-layout.component.scss']
 })
-export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
+export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;

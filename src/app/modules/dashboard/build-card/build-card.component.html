@@ -92,7 +92,7 @@
       </mat-icon>
       <small class="fw-bold pr-2">{{ build.commit.branch }}</small>
       <a href="https://www.google.com/" target="_blank"
-        class="fw-bold sha1">{{ exctractShortSha1(build.commit.sha1) }}</a>
+        class="fw-bold sha1">{{ buildMiscService.exctractShortSha1(build.commit.sha1) }}</a>
     </div>
     <div fxLayout="row" fxLayoutAlign="start none" class="build-details-medium" *ngIf="cardSize >= 20">
       <mat-icon aria-hidden="false" aria-label="Example home icon" class="fw-bold build-data">person
@@ -103,7 +103,7 @@
   <mat-card-footer fxLayout="row" fxLayoutAlign="space-between center" class="pl-2 pr-2 fw-bold" *ngIf="cardSize >= 20"
     style="background-color: rgba(117, 117, 117, 0.2);color: white;">
     <small *ngIf="build.build.status != 'PROGRESS'">#{{build.build.number}}</small>
-    <small *ngIf="build.build.status != 'PROGRESS'">Finished {{ relativeDate(build.build.time) }}</small>
+    <small *ngIf="build.build.status != 'PROGRESS'">Finished {{ buildMiscService.relativeDate(build.build.time) }}</small>
     <mat-progress-bar mode="indeterminate" *ngIf="build.build.status == 'PROGRESS'" class="mr-5">
     </mat-progress-bar>
     <small>{{build.build.status}}</small>

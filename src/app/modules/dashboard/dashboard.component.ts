@@ -1,11 +1,18 @@
 import { Component, OnInit, ViewChild, HostListener, Inject } from '@angular/core';
 import { NotificationService } from 'src/app/core/services/notification.service';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Title } from '@angular/platform-browser';
 import { FullScreenService } from 'src/app/core/services/full-screen.service';
 import { DOCUMENT } from '@angular/common';
 import * as buildData from 'src/assets/data/project-builds.json';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
+export interface State {
+  flag: string;
+  name: string;
+  population: string;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +31,8 @@ export class DashboardComponent implements OnInit {
     private notificationService: NotificationService,
     private fullScreenService: FullScreenService,
     private titleService: Title
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.titleService.setTitle('BuildBoard - Builds');
@@ -89,5 +97,10 @@ export class DashboardComponent implements OnInit {
       }
       index++;
     }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

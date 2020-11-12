@@ -1,11 +1,3 @@
-table {
-  width: 100%;
-}
-
-th.mat-sort-header-sorted {
-  color: black;
-}
-
 .build-monitor {
   background-color: black;
   mat-card-header.monitor {
@@ -17,4 +9,13 @@ th.mat-sort-header-sorted {
   mat-icon.monitor {
     color: white;
   }
+}
+
+::ng-deep .mat-card-header-text {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }

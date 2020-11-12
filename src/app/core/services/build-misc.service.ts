@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,13 @@ export class BuildMiscService {
       return 'build-progress';
 
     return 'build-canceled'
+  }
+
+  relativeDate(fromDate) {
+    return moment(fromDate).fromNow();
+  }
+
+  exctractShortSha1(sha1) {
+    return sha1.substr(0,7);
   }
 }

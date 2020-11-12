@@ -2,26 +2,40 @@
   <div fxFlex="95%">
 
     <mat-card id="dashboard" [ngClass]="{'build-monitor': fullScreen && !gridMode}">
-      <mat-card-header fxLayout="row" fxLayoutAlign="end center" class="monitor">
-        <button mat-icon-button (click)="changeCardFlex()">
-          <mat-icon class="monitor">dashboard</mat-icon>
-        </button>
-        <button mat-icon-button (click)="toggleGridMode()" *ngIf="!gridMode">
-          <mat-icon class="monitor">grid_on</mat-icon>
-        </button>
-        <button mat-icon-button (click)="exitGridMode()" *ngIf="gridMode">
-          <mat-icon class="monitor">grid_off</mat-icon>
-        </button>
-        <button mat-icon-button (click)="toggleFullscreen()" *ngIf="!fullScreen">
-          <mat-icon class="monitor">fullscreen</mat-icon>
-        </button>
-        <button mat-icon-button (click)="exitFullscreen()" *ngIf="fullScreen">
-          <mat-icon class="monitor">fullscreen_exit</mat-icon>
-        </button>
+      <mat-card-header>
+        <mat-card-title fxLayout="row" fxLayoutAlign="space-between center" class="monitor" style="width: 100%;">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button (click)="changeCardFlex()" *ngIf="!gridMode">
+              <mat-icon class="monitor">dashboard</mat-icon>
+            </button>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <button mat-icon-button (click)="toggleGridMode()" *ngIf="!gridMode">
+              <mat-icon class="monitor">grid_on</mat-icon>
+            </button>
+            <button mat-icon-button (click)="exitGridMode()" *ngIf="gridMode">
+              <mat-icon class="monitor">grid_off</mat-icon>
+            </button>
+            <button mat-icon-button (click)="toggleFullscreen()" *ngIf="!fullScreen">
+              <mat-icon class="monitor">fullscreen</mat-icon>
+            </button>
+            <button mat-icon-button (click)="exitFullscreen()" *ngIf="fullScreen">
+              <mat-icon class="monitor">fullscreen_exit</mat-icon>
+            </button>
+          </div>
+
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content [ngStyle]="fullScreen ? fullScreenContentStyle() : null" class="monitor">
         <div fxLayout="row space-around" *ngIf="!gridMode">
-          <div [fxFlex.gt-sm]="cardFlex" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds" class="pr-3 pb-3">
+          <div [fxFlex.gt-sm]="cardFlex" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds"
+            class="pr-3 pb-3">
             <app-build-card [build]="project" [card-size]="cardFlex"></app-build-card>
           </div>
         </div>

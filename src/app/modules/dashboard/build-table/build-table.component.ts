@@ -11,13 +11,13 @@ import { BuildMiscService } from 'src/app/core/services/build-misc.service';
 })
 export class BuildTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['project', 'status', 'time', 'version', 'author'];
+  displayedColumns: string[] = ['project', 'status', 'number', 'branch', 'time', 'version', 'author', 'commit', 'test', 'sonar', 'dependencyCheck'];
   dataSource = new MatTableDataSource<ProjectBuild>();
 
   @Input() builds: ProjectBuild[];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  
+
   constructor(public buildMiscService: BuildMiscService) { }
 
   ngOnInit(): void {
