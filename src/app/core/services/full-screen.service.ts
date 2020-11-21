@@ -31,25 +31,6 @@ export class FullScreenService {
     }
   }
 
-
-  openComponentFullscreen(elementId: string) {
-
-    const document: any = window.document;
-    const element = document.getElementById(elementId);
-
-    if (element.mozRequestFullScreen) {
-      /* Firefox */
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-      /* Chrome, Safari and Opera */
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      /* IE/Edge */
-      element.msRequestFullscreen();
-    }
-    
-  }
-
   /* Close fullscreen */
   closeFullscreen() {
     if (this.document.mozCancelFullScreen) {

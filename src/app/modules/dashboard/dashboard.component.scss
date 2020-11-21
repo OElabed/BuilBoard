@@ -1,18 +1,25 @@
-.build-monitor {
-  background-color: black;
-  mat-card-header.monitor {
-    background-color: black;
-  }
-  mat-card-content.monitor {
-    background-color: black;
-  }
-  mat-icon.monitor {
-    color: white;
-  }
+.container {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: auto;
 }
 
-::ng-deep .mat-card-header-text {
+.dashboard-content {
   width: 100%;
+}
+
+.dashboard-header {
+  width: 100%;
+}
+
+div.monitor {
+  background-color: black;
+}
+
+mat-icon.monitor {
+  color: white;
 }
 
 .mat-form-field {

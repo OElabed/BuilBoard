@@ -1,0 +1,15 @@
+<div id="fab-dismiss" *ngIf="fabTogglerState==='active'" (click)="onToggleFab()">
+</div>
+<div class="fab-container">
+    <button mat-fab color="primary" (click)="onToggleFab()">
+        <mat-icon [@fabToggler]="{value: fabTogglerState}">add</mat-icon> <!-- Animation here -->
+    </button>
+    <div [@speedDialStagger]="buttons.length">
+        <!-- and here -->
+            <button *ngFor="let btn of buttons"mat-mini-fab color="secondary" (click)="onButtonAction(btn)" 
+                [disabled]="btn.disabled" #tooltip="matTooltip" [matTooltip]="btn.toolTip" matTooltipPosition="left"
+                matTooltipHideDelay="100">
+                <mat-icon>{{btn.icon}}</mat-icon>
+            </button>
+    </div>
+</div>

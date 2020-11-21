@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
   declarations: [LandingComponent],
   imports: [
     CommonModule,
-    LandingRoutingModule
+    LandingRoutingModule,
+    CoreModule
   ]
 })
 export class LandingModule { }

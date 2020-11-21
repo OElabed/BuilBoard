@@ -1,1 +1,22 @@
-<p>landing works!</p>
+<div class="landing-page">
+    <div class="content px20">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-card (click)="onSettingsClick($event)" matRipple class="card-clickable">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <div>
+                        <mat-icon style="font-size: 200px; width: max-content;">settings</mat-icon>
+                    </div>
+                    <h2>Settings</h2>
+                </div>
+            </mat-card>
+            <mat-card (click)="onDashboardClick($event)" matRipple class="card-clickable ml-4">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <div>
+                        <mat-icon style="font-size: 200px; width: max-content;">dashboard</mat-icon>
+                    </div>
+                    <h2>Dashboard</h2>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

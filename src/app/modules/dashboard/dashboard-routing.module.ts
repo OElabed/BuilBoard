@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminLayoutComponent } from 'src/app/shared/admin-layout/admin-layout.component';
+import { EmptyLayoutComponent } from 'src/app/shared/layout/empty-layout/empty-layout.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminLayoutComponent,
+    component: EmptyLayoutComponent,
     children: [
       { path: '', component: DashboardComponent },
     ]

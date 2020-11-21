@@ -7,12 +7,9 @@ import * as buildData from 'src/assets/data/project-builds.json';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { FabSpeedButton } from 'src/app/shared/components/speed-dial-fab/speed-dial-fab.component';
+import { MonitorService } from 'src/app/core/services/monitor.service';
 
-export interface State {
-  flag: string;
-  name: string;
-  population: string;
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +20,53 @@ export class DashboardComponent implements OnInit {
   fullScreen: Boolean = false;
   gridMode: Boolean = false;
   cardFlex: number = 33;
+  minusCardFlex: Boolean = true;
+  addCardFlex: Boolean = true;
+
+  fabButtons = [
+    {
+      icon: 'exit_to_app',
+      action: 'EXIT_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'grid_on',
+      action: 'GRID_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'fullscreen',
+      action: 'FULLSCREEN_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'search',
+      action: 'SEARCH_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'settings',
+      action: 'SETTINGS_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'zoom_in',
+      action: 'ZOOM_IN_ACTION',
+      toolTip: 'info',
+      disabled: false
+    },
+    {
+      icon: 'zoom_out',
+      action: 'ZOOM_OUT_ACTION',
+      toolTip: 'info',
+      disabled: false
+    }
+  ];
 
   projectBuilds: any = (buildData as any).default;
 
@@ -30,6 +74,7 @@ export class DashboardComponent implements OnInit {
     @Inject(DOCUMENT) private document: any,
     private notificationService: NotificationService,
     private fullScreenService: FullScreenService,
+    private monitorSerice: MonitorService,
     private titleService: Title
   ) {
   }
@@ -38,7 +83,7 @@ export class DashboardComponent implements OnInit {
     this.titleService.setTitle('BuildBoard - Builds');
   }
 
-  @HostListener('fullscreenchange', ['$event'])
+  @HostListener('document:fullscreenchange', ['$event'])
   screenChange(event) {
     this.chkScreenMode()
   }
@@ -47,15 +92,23 @@ export class DashboardComponent implements OnInit {
     if (this.document.fullscreenElement) {
       //fullscreen
       this.fullScreen = true;
+      if (this.gridMode == false) {
+        this.monitorSerice.enable();
+      }
+
     } else {
       //not in full screen
       this.fullScreen = false;
+      if (this.gridMode == false) {
+        this.monitorSerice.disable();
+      }
+
     }
   }
 
   toggleFullscreen() {
     // this.fullScreen = true;
-    this.fullScreenService.openComponentFullscreen("dashboard");
+    this.fullScreenService.openFullscreen();
   }
 
   exitFullscreen() {
@@ -66,6 +119,8 @@ export class DashboardComponent implements OnInit {
 
   toggleGridMode() {
     this.gridMode = true;
+
+    this.monitorSerice.disable();
   }
 
   exitGridMode() {
@@ -99,8 +154,58 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
+  minusBuildCardSize(): void {
+    let flexList = [10, 20, 25, 33, 50, 100];
+    let currentIndex;
+    flexList.forEach((value, index) => {
+      if (value == this.cardFlex) {
+        currentIndex = index
+      }
+    });
+
+    if (currentIndex - 1 < 0) {
+      this.minusCardFlex = false;
+    } else {
+      this.cardFlex = flexList[currentIndex - 1];
+      if (currentIndex - 2 < 0) {
+        this.minusCardFlex = false;
+      } else {
+        this.minusCardFlex = true;
+        this.addCardFlex = true;
+      }
+    }
   }
+
+  addBuildCardSize(): void {
+    let flexList = [10, 20, 25, 33, 50, 100];
+    let currentIndex;
+    flexList.forEach((value, index) => {
+      if (value == this.cardFlex) {
+        currentIndex = index
+      }
+    });
+
+    if (currentIndex + 1 > flexList.length - 1) {
+      this.addCardFlex = false;
+    } else {
+      this.cardFlex = flexList[currentIndex + 1];
+      if (currentIndex + 2 > flexList.length - 1) {
+        this.addCardFlex = false;
+      } else {
+        this.addCardFlex = true;
+        this.minusCardFlex = true;
+
+      }
+    }
+  }
+
+  onSpeedDialFabAction(button: FabSpeedButton) {
+    if (button.action == "FULL_SCREEN") {
+
+    }
+    if (button.action == "FULL_SCREEN") {
+
+    }
+  }
+
 }
