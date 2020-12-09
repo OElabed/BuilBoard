@@ -43,5 +43,6 @@ export class SpeedDialFabComponent implements OnInit {
 
   onButtonAction(action: FabSpeedButton) {
     this.actionEvent.emit(action);
+    this.hideItems();
   }
 }

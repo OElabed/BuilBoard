@@ -1,60 +1,42 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center none" [ngClass]="{'monitor': fullScreen && !gridMode}">
-  <div fxFlex="95%">
+<div class="container" fxLayout="row" fxLayoutAlign="center none" [ngClass]="{'monitor': fullScreen && !gridView}">
+  <div fxFlex="98%">
     <div fxLayout="column" fxLayoutAlign="space-around center">
-      <div class="dashboard-header">
-        <div fxLayout="row" fxLayoutAlign="space-between center" [ngClass]="{'monitor': fullScreen && !gridMode}"
-          style="width: 100%;">
-          <div fxLayout="row" fxLayoutAlign="start center">
-            <button #tooltip="matTooltip" matTooltip="Zoom out" matTooltipPosition="below"
-              matTooltipHideDelay="100" mat-icon-button (click)="minusBuildCardSize()" *ngIf="!gridMode" [disabled]="!minusCardFlex">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">zoom_out</mat-icon>
-            </button>
-            <span *ngIf="!gridMode">{{ cardFlex }}%</span>
-            <button #tooltip="matTooltip" matTooltip="Zoom in" matTooltipPosition="below"
-              matTooltipHideDelay="100" mat-icon-button (click)="addBuildCardSize()" *ngIf="!gridMode" [disabled]="!addCardFlex">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">zoom_in</mat-icon>
-            </button>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="end center">
-            <button mat-icon-button #tooltip="matTooltip" matTooltip="Grid view" matTooltipPosition="below"
-              matTooltipHideDelay="100" (click)="toggleGridMode()" *ngIf="!gridMode">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">grid_on</mat-icon>
-            </button>
-            <button mat-icon-button #tooltip="matTooltip" matTooltip="Module view" matTooltipPosition="below"
-              matTooltipHideDelay="100" (click)="exitGridMode()" *ngIf="gridMode">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">view_module</mat-icon>
-            </button>
-            <button mat-icon-button #tooltip="matTooltip" matTooltip="Open fullscreen" matTooltipPosition="below"
-              matTooltipHideDelay="100" (click)="toggleFullscreen()" *ngIf="!fullScreen">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">fullscreen</mat-icon>
-            </button>
-            <button mat-icon-button #tooltip="matTooltip" matTooltip="Exit fullscreen" matTooltipPosition="below"
-              matTooltipHideDelay="100" (click)="exitFullscreen()" *ngIf="fullScreen">
-              <mat-icon [ngClass]="{'monitor': fullScreen && !gridMode}">fullscreen_exit</mat-icon>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
       <div class="dashboard-content">
-        <!-- <div [ngStyle]="fullScreen ? fullScreenContentStyle() : null" [ngClass]="{'monitor': fullScreen && !gridMode}"> -->
-          <div fxLayout="row space-around" *ngIf="!gridMode">
-            <div [fxFlex.gt-sm]="cardFlex" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds"
-              class="pr-3 pb-3">
-              <app-build-card [build]="project" [card-size]="cardFlex"></app-build-card>
-            </div>
+        <div fxLayout="row space-around" *ngIf="!gridView">
+          <div [fxFlex.gt-sm]="cardFlex" fxFlex.gt-xs="50" fxFlex="100" *ngFor="let project of projectBuilds"
+            class="pr-3 pb-3">
+            <app-build-card [build]="project" [card-size]="cardFlex"></app-build-card>
           </div>
+        </div>
 
-          <div *ngIf="gridMode">
-            <app-build-table [builds]="projectBuilds"></app-build-table>
-          </div>
+        <div *ngIf="gridView">
+          <app-build-table [builds]="projectBuilds"></app-build-table>
+        </div>
 
-        <!-- </div> -->
       </div>
 
     </div>
 
   </div>
   <app-speed-dial-fab [fabButtons]="fabButtons" (actionEvent)="onSpeedDialFabAction($event)"></app-speed-dial-fab>
+  <div id="search-dismiss" *ngIf="displaySearch" (click)="onDismissSearch()" style="background-color: rgba(128, 128, 128, 0.8);">
+  </div>
+  <div class="search-header" *ngIf="displaySearch" [@fadeInDownOnEnter] [@fadeOutUpOnLeave]>
+    <div fxLayout="row" fxLayoutAlign="center center" >
+      <div class="search-icon">
+        <mat-icon>search</mat-icon>
+      </div>
+      <mat-form-field class="example-form-field">
+        <mat-label>Search project</mat-label>
+        <input matInput type="text" [(ngModel)]="searchValue" cdkFocusInitial (keydown.esc)="onEscSearchInput()">
+        <button mat-button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </div>
+    
+    
+
+  </div>
 </div>

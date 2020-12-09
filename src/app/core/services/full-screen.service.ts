@@ -36,12 +36,12 @@ export class FullScreenService {
     if (this.document.mozCancelFullScreen) {
       /* Firefox */
       this.document.mozCancelFullScreen();
-    } else if (this.document.webkitExitFullscreen) {
+    } else if (this.document.webkitexitFullscreenAction) {
       /* Chrome, Safari and Opera */
-      this.document.webkitExitFullscreen();
-    } else if (this.document.msExitFullscreen) {
+      this.document.webkitexitFullscreenAction();
+    } else if (this.document.msexitFullscreenAction) {
       /* IE/Edge */
-      this.document.msExitFullscreen();
+      this.document.msexitFullscreenAction();
     }
   }
 
